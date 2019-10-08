@@ -38,11 +38,18 @@ public class CustomerController {
         return "login";
     }
 
+    @GetMapping("/customers/logout/{userId}")
+    public String logoutCustomer(@PathVariable Integer userId) {
+        Customer currentCustomer = customerService.findById(userId);
+        currentCustomer.setLoginStatus("Not Logged");
+        return "redirect:/customers";
+    }
+
     @PostMapping("/customers/login/{userEmail}")
     public String validLogin(@PathVariable String userEmail, Customer customer) {
         Customer currentCustomer = customerService.findByEmail(userEmail);
         if (customerService.login(currentCustomer.getEmail(), customer.getPassword())) {
-            currentCustomer.setLoginStatus("Logged");
+            currentCustomer.setLoginStatus("Logged in");
         }
         return "redirect:/customers";
     }
@@ -54,23 +61,8 @@ public class CustomerController {
         return "customer-edit";
     }
 
-//    @GetMapping("/customers/addauthor/{isbn}")
-//    public String getBookForAuthorSave(@PathVariable String isbn, Model model) {
-//        Book currentBook = bookService.findById(isbn);
-//        model.addAttribute("book", currentBook);
-//        List<Author> authors = authorService.getAll();
-//        model.addAttribute("authors", authors);
-//        return "book-add-author";
-//    }
-
-//    @PostMapping("/customer/saveauthor/{isbn}")
-//    public String saveAuthor(@PathVariable String isbn, Book book, Model model) {
-//        bookService.update(book);
-//        return "redirect:/books";
-//    }
-
     @PostMapping("/customers/update/{userId}")
-    public String updateCustomer(@PathVariable Integer userId, Customer customer, Model model) {
+    public String updateCustomer(@PathVariable Integer userId, Customer customer) {
         customerService.update(customer);
 
         return "redirect:/customers";

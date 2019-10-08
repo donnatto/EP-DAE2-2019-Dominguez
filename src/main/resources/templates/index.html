@@ -1,14 +1,6 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
-<head>
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
-    <meta name="viewport" content="width=device-width, initial-scale=1"/>
-    <title>McGill</title>
-
-    <!-- CSS  -->
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
-</head>
+<head th:insert="/fragments/head"></head>
 <body>
 <header>
     <nav class="red lighten-2" role="navigation">
@@ -23,17 +15,17 @@
 <main>
 <div class="container">
     <div class="row">
-        <div class="col s12 m6 center">
+        <div class="col s12 m6 offset-m3">
             <div class="card">
                 <div class="card-image">
-                    <img src="/img/authors.jpg">
+                    <img src="/img/customers.jpg">
                     <a th:href="@{/customers}"
                        class="btn-floating btn-large halfway-fab waves-effect waves-light red"><i
                             class="material-icons">arrow_forward</i></a>
                 </div>
                 <div class="card-content">
-                    <span class="card-title">Clientes</span>
-                    <p>Ingresa para ver clientes y registrarse</p>
+                    <span class="card-title"><strong>Clientes</strong></span>
+                    <p>Ingrese para iniciar sesión o registrarse</p>
                 </div>
             </div>
         </div>

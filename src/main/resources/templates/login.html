@@ -1,52 +1,45 @@
 <!DOCTYPE html>
 <html lang="es" xmlns:th="http://www.thymeleaf.org">
-<head>
-
-    <!-- Required meta tags -->
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-
-    <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
-          integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-
-    <title>Log In</title>
+<head th:insert="fragments/head">
 </head>
 <body>
 
 
 <div class="container">
-    <h3>Login</h3>
+    <h3 class="center">Login</h3>
+    <br>
+    <div class="row">
+        <div class="section col s12 l6 offset-l3">
 
-    <div>
+            <form action="#" method="post"
+                  th:object="${customer}"
+                  th:action="@{/customers/login/{userEmail} (userEmail=${customer.email})}"
+            >
 
-        <form action="#" method="post"
-              th:object="${customer}"
-              th:action="@{/customers/login/{userEmail} (userEmail=${customer.email})}"
-        >
+                <div class="input-field">
+                    <label for="email">Email</label>
+                    <input type="text" class="class-controller"
+                           id="email" placeholder="Ingrese email"
+                           th:field="*{email}"
+                    >
+                </div>
 
-            <div class="form-group">
-                <label for="email">email</label>
-                <input type="text" class="class-controller"
-                       id="email" placeholder="ingrese email"
-                       th:field="*{email}"
-                >
-            </div>
+                <div class="input-field">
+                    <label for="password">Password</label>
+                    <input type="password" class="class-controller"
+                           id="password" placeholder="Ingrese el password"
+                           th:field="*{password}"
+                    >
+                </div>
 
-            <div class="form-group">
-                <label for="password">password</label>
-                <input type="password" class="class-controller"
-                       id="password" placeholder="ingrese el password"
-                       th:field="*{password}"
-                >
-            </div>
-
-            <button type="submit" class="btn btn-primary">
-                Login
-            </button>
+                <button type="submit" class="btn">
+                    Login
+                </button>
+                <a th:href="@{/customers}" class="btn red lighten-1">Atras</a>
 
 
-        </form>
+            </form>
+        </div>
 
 
     </div>
@@ -54,6 +47,7 @@
 
 </div>
 
-
+<!--  Scripts-->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
 </body>
 </html>

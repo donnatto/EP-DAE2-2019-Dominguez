@@ -12,8 +12,8 @@ import java.util.List;
 public class CustomerService implements GenericService<Customer, Integer, String> {
     List<Customer> customers = new ArrayList<>(
             Arrays.asList(
-                    new Customer(1, "1234", "Not logged", LocalDate.now(),"Edwin", "Lima 123", "edwin@gmail.com", "Visa", 200),
-                    new Customer(2, "abc", "Not logged", LocalDate.now(), "Pedro", "Lima 456", "pedro@gmail.com", "MasterCard", 100)
+                    new Customer(1, "1234", "Not Logged", LocalDate.now(),"Edwin", "Lima 123", "edwin@gmail.com", "Visa", 200),
+                    new Customer(2, "abc", "Not Logged", LocalDate.now(), "Pedro", "Lima 456", "pedro@gmail.com", "MasterCard", 100)
             )
     );
 

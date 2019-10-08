@@ -1,13 +1,6 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
-<head>
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
-    <meta name="viewport" content="width=device-width, initial-scale=1"/>
-    <title>EnLinio</title>
-
-    <!-- CSS  -->
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+<head th:insert="fragments/head">
 </head>
 <body>
 <header>
@@ -57,16 +50,20 @@
 
                             <td>
                                 <div>
-                                    <a th:href="@{/customers/login/{userId}
+                                    <a th:if="${customer.loginStatus.equals('Not Logged')}" th:href="@{/customers/login/{userId}
                                 (userId=${customer.userId})}"
                                        class="waves-effect waves-light btn-small black">Login
                                     </a>
-                                    <a th:href="@{/customers/edit/{userId}
+                                    <a th:if="${customer.loginStatus.equals('Logged in')}" th:href="@{/customers/logout/{userId}
+                                (userId=${customer.userId})}"
+                                       class="waves-effect waves-light btn-small red">Logout
+                                    </a>
+                                    <a th:if="${customer.loginStatus.equals('Logged in')}" th:href="@{/customers/edit/{userId}
                                     (userId=${customer.userId})}"
                                        class="waves-effect waves-light btn-small">Editar
                                     </a>
 
-                                    <a th:if="${customer.loginStatus.equals('Logged')}" th:href="@{/shopping}"
+                                    <a th:if="${customer.loginStatus.equals('Logged in')}" th:href="@{/shopping}"
                                        class="waves-effect waves-light btn-small blue">Comprar
                                     </a>
 
