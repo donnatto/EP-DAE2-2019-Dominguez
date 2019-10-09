@@ -2,15 +2,7 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head th:insert="/fragments/head"></head>
 <body>
-<header>
-    <nav class="red lighten-2" role="navigation">
-        <div class="nav-wrapper container">
-            <a id="logo-container" href="/" class="brand-logo white-text">EnLinio</a>
-            <ul class="right">
-                <li><a th:href="@{/customers}" class="white-text">Clientes</a></li>
-            </ul>
-        </div>
-    </nav>
+<header th:insert="/fragments/header">
 </header>
 <main>
 <div class="container">

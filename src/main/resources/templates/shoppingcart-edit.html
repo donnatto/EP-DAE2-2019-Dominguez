@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:insert="/fragments/head">
+</head>
+<body>
+<div class="container">
+    <h3 class="center">Actualizar Cantidad</h3>
+    <br>
+    <div class="row">
+        <div class="section col s12 l6 offset-l3">
+            <form action="#" method="post"
+                  th:object="${shoppingCart}"
+                  th:action="@{/shoppingcart/edit/{cartId} (cartId=${shoppingCart.cartId})}"
+            >
+
+                <div class="input-field">
+                    <label for="userId">ID</label>
+                    <input type="text" class="class-controller"
+                           id="userId" readonly
+                           th:field="*{cartId}"
+                    >
+                </div>
+
+                <div class="input-field">
+                    <label for="productId">Nombre</label>
+                    <input type="text" class="class-controller"
+                           id="productId" readonly
+                           th:field="*{productId}"
+                    >
+                </div>
+
+                <div class="input-field">
+                    <label for="quantity">Cantidad</label>
+                    <input type="number" class="class-controller"
+                           id="quantity"
+                           th:field="*{quantity}"
+                    >
+                </div>
+
+                <button type="submit" class="btn">
+                    Actualizar
+                </button>
+                <a th:href="@{/shoppingcart}" class="btn red lighten-1">Atras</a>
+
+            </form>
+        </div>
+    </div>
+</div>
+
+<!--  Scripts-->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+</body>
+</html>

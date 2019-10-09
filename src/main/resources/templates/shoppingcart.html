@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:insert="/fragments/head">
+</head>
+<body>
+<header th:insert="/fragments/header"></header>
+<div class="section">
+    <div th:switch="cart" class="container">
+        <div th:case="*" class="row">
+            <div class="col s12 center">
+                <h4>Carrito de Compras</h4>
+                <div class="row center">
+                    <a th:href="@{/shoppingcart/add}" class="waves-effect waves-light btn">Agregar Producto</a>
+                </div>
+                <br>
+                <table class="highlight responsive-table">
+                    <thead>
+                    <tr>
+                        <th scope="col">Id Cart</th>
+                        <th scope="col">Producto</th>
+                        <th scope="col">Cantidad</th>
+                        <th scope="col">Fecha</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr th:each="product : ${cart}">
+                        <th scope="row" th:text="${product.cartId}"></th>
+
+                        <td th:text="${product.productId}"></td>
+                        <td th:text="${product.quantity}"></td>
+                        <td th:text="${product.dateAdd}"></td>
+
+                        <td>
+                            <div>
+                                <a th:href="@{/shoppingcart/edit/{cartId}
+                                    (cartId=${product.cartId})}"
+                                   class="waves-effect waves-light btn-small black">Actualizar Cantidad
+                                </a>
+                            </div>
+                        </td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>

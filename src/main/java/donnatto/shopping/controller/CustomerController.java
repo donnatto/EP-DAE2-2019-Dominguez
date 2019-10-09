@@ -25,7 +25,7 @@ public class CustomerController {
     }
 
     @PostMapping("/customers/save")
-    public String saveCustomer(Customer customer, Model model) {
+    public String saveCustomer(Customer customer) {
         customerService.register(customer);
 
         return "redirect:/customers";
@@ -73,16 +73,6 @@ public class CustomerController {
         List<Customer> customers = customerService.getAll();
         model.addAttribute("customers", customers);
         return "customers";
-    }
-
-    @GetMapping("/customers/delete/{userId}")
-    public String deleteBook(@PathVariable Integer userId, Model model) {
-        Customer currentCustomer = customerService.findById(userId);
-        if (currentCustomer != null) {
-            customerService.delete(currentCustomer);
-        }
-
-        return "redirect:/customers";
     }
 
 }

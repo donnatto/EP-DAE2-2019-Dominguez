@@ -3,22 +3,14 @@
 <head th:insert="fragments/head">
 </head>
 <body>
-<header>
-    <nav class="red lighten-2" role="navigation">
-        <div class="nav-wrapper container">
-            <a id="logo-container" href="/" class="brand-logo white-text">EnLinio</a>
-            <ul class="right">
-                <li><a th:href="@{/customers}" class="white-text">Clientes</a></li>
-            </ul>
-        </div>
-    </nav>
+<header th:insert="fragments/header">
 </header>
 <main>
     <div class="section">
         <div th:switch="customers" class="container">
             <div th:case="*" class="row">
                 <div class="col s12 center">
-                    <h4>Lista de clientes</h4>
+                    <h4>Lista de Clientes</h4>
                     <div class="row center">
                         <a th:href="@{/customers/add}" class="waves-effect waves-light btn">Registrarse</a>
                     </div>
@@ -63,7 +55,7 @@
                                        class="waves-effect waves-light btn-small">Editar
                                     </a>
 
-                                    <a th:if="${customer.loginStatus.equals('Logged in')}" th:href="@{/shopping}"
+                                    <a th:if="${customer.loginStatus.equals('Logged in')}" th:href="@{/shoppingcart}"
                                        class="waves-effect waves-light btn-small blue">Comprar
                                     </a>
 

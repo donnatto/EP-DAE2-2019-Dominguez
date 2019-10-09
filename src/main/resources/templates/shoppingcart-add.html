@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:insert="fragments/head">
+</head>
+<body>
+
+<div class="container">
+    <h3 class="center">Registro</h3>
+    <br>
+    <div class="row">
+        <div class="section col s12 l6 offset-l3">
+            <form action="#" method="post"
+                  th:object="${shoppingCart}"
+                  th:action="@{/shoppingcart/save}"
+            >
+
+                <div class="input-field">
+                    <label for="cartId">ID</label>
+                    <input type="text" class="class-controller"
+                           id="cartId"
+                           th:field="*{cartId}"
+                    >
+                </div>
+
+                <div class="input-field">
+                    <label for="productId">Producto</label>
+                    <input type="text" class="class-controller"
+                           id="productId"
+                           th:field="*{productId}"
+                    >
+                </div>
+
+                <div class="input-field">
+                    <label for="quantity">Cantidad</label>
+                    <input type="number" class="class-controller"
+                           id="quantity"
+                           th:field="*{quantity}"
+                    >
+                </div>
+
+                <button type="submit" class="btn">
+                    Confirmar
+                </button>
+                <a th:href="@{/shoppingcart}" class="btn red lighten-1">Atras</a>
+
+            </form>
+        </div>
+    </div>
+</div>
+
+<!--  Scripts-->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+</body>
+</html>
